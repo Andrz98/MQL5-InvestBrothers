@@ -1,0 +1,50 @@
+# Archivos compilados
+*.ex5
+*.ex4
+
+# Archivos de respaldo temporales
+*.mq5~
+*.bak
+*.tmp
+*.swp
+*.swo
+*.orig
+
+# Archivos de log
+*.log
+
+# Archivos de datos de MetaEditor/MetaTrader
+*.dat
+*.hst
+*.fxt
+*.log
+*.chr
+*.mqh~
+*.mql~
+
+# Archivos binarios generados por pruebas
+*.bin
+
+# Caché
+.cache/
+__pycache__/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Carpetas que no deben subirse
+Logs/
+Tester/
+temp/
+liveupdate/
+Profiles/
+MQL5/Shared Projects/
+MQL5/Images/
+MQL5/Services/
+MQL5/Files/
+
+# Opcional: ignora configuraciones personales de VSCode o PyCharm
+.vscode/
+.idea/
