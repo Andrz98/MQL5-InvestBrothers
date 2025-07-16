@@ -4,54 +4,50 @@
 
 # Atoms – Librería Modular para Bots MQL5
 
-## Autores
-
-JPWarrior
-AndrzWarrior
+Autores:  
+JPWarrior, AndrzWarrior  
 Todos los derechos reservados © 2025
-
----
 
 ## Filosofía de Diseño
 
-### Small inline, complex external
+Este repositorio se basa en una arquitectura modular y escalable fundamentada en la programación orientada a objetos (OOP) nativa de MQL5.  
+Cada componente (“átomo”) se implementa como una clase independiente, cohesionada y totalmente desacoplada, aprovechando herencia, polimorfismo y encapsulamiento propios del lenguaje.
 
-Cada átomo expone una interfaz mínima en su archivo `.mqh` (header), delegando toda lógica compleja a un archivo de implementación `_impl.mqh`.
-Esto mejora la legibilidad, favorece el mantenimiento y permite reuso en distintos contextos.
+- **Separación de responsabilidades:** Cada átomo expone una interfaz mínima en su archivo `.mqh` y delega la lógica compleja a archivos `*_impl.mqh`, facilitando la legibilidad y el mantenimiento.
+- **Encapsulamiento y reutilización:** Los atributos y métodos se declaran siguiendo las buenas prácticas OOP en MQL5, permitiendo extender y reutilizar componentes en diferentes Expert Advisors y scripts.
+- **Herencia y polimorfismo:** Cuando es relevante, los átomos pueden heredar de clases base o interfaces, permitiendo estructuras jerárquicas y polimorfismo para lógica común o especializada.
+- **Configuración explícita:** La parametrización de cada átomo es explícita, mediante el constructor o el método `setParams()`, evitando variables globales y reforzando la autonomía de cada módulo.
+- **Pureza funcional:** Los átomos son unidades funcionales puras, no contienen lógica de estrategia y pueden instanciarse con distintas configuraciones en cualquier EA, script o utilidad.
 
-### Separación de Archivos
+Esta filosofía permite construir bots y utilidades para trading algorítmico que sean modulares, testeables, mantenibles y adaptables a cualquier escenario.
+
+## Separación de Archivos
 
 - `*.mqh`: declara atributos, constructor, destructor y métodos públicos.
 - `*_impl.mqh`: contiene la implementación concreta.
 - `index.mqh`: archivo opcional para importar todos los componentes del dominio.
 
-### Átomos vírgenes
+## Átomos vírgenes
 
 Cada átomo es funcionalmente puro y:
-
 - No contiene lógica de estrategia.
 - Es reutilizable en distintos EAs sin modificación.
 - Puede instanciarse múltiples veces con diferentes configuraciones.
 
-### Configuración por constructor o setParams
+## Configuración por constructor o setParams
 
 Los parámetros clave pueden definirse:
-
 - En el constructor para inicialización fija.
 - Mediante `setParams()` para flexibilidad dinámica.
 
-### Desacoplamiento estructural
+## Desacoplamiento estructural
 
 Cada átomo:
-
 - Vive en su propia carpeta.
 - No depende de ningún otro átomo.
 - Es completamente autónomo.
 
----
-
 ## Estructura del Proyecto
-
 ```
 Atoms/
 ├── Flow/
